@@ -1,0 +1,35 @@
+<!-- Google font -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+<%= stylesheet_link_tag "index_account_category.css", "data-turbo-track": "reload", content: "no-preview"  %>
+<div class="container-main">
+  <div class="container-title-folders">
+    <p>Categorias de cuentas</p>
+    <p id="subtitle1">Listado de Categorias de cuentas</p>
+    <%= link_to "", menu_account_path , class: 'btn btn-primary bi bi-arrow-counterclockwise rounded-1 float-right icon-back-group' %>
+    <%= link_to "", account_category_new_path , class: 'btn btn-primary bi bi-plus-lg rounded-1 float-right icon-new' %>
+  </div>
+  <div class="container-folders">
+    <table class="table table-striped table-hover">
+      <thead>
+      <tr>
+        <th style="text-align: center">Nombre Grupo de cuenta</th>
+        <th style="text-align: center">Nombre Sub Grupo de cuenta</th>
+        <th style="text-align: center">Codigo Categoria</th>
+        <th style="text-align: center">Nombre Categoria de Cuenta</th>
+        <th style="text-align: center">Editar o Ver</th>
+      </tr>
+      </thead>
+      <% @account_category.each do |accountCategory| %>
+      <tbody>
+      <tr>
+        <td style="text-align: center"><%= accountCategory.group.account_name %></td>
+        <td style="text-align: center"><%= accountCategory.sub_group.name_sub_group %></td>
+        <td style="text-align: center"><%= accountCategory.account_category_code %></td>
+        <th style="text-align: center"><%= accountCategory.account_category_name %></th>
+        <td style="text-align: center">&nbsp&nbsp<%= link_to "", account_category_edit_path(accountCategory), class:'btn btn-outline rounded-circle bi bi-pencil pencil-edit', style: 'font-size: 25px'%>&nbsp&nbsp</td>
+      </tr>
+      </tbody>
+      <% end %>
+    </table>
+  </div>
+</div>

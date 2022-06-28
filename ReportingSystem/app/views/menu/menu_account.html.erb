@@ -1,0 +1,19 @@
+<!-- Google font -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+<%= stylesheet_link_tag "account_menu"%>
+<div class="container-main">
+  <div class="container-title-folders">
+    <p>Modulo Cuentas </p>
+    <p id="subtitle1">Listado de opciones del modulo Cuentas</p>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <%= button_to "Grupo de Cuentas", groups_path, :method => "get", class:'btn btn-primary'%>
+  <%= button_to "Sub Grupo de Cuentas", sub_groups_path, :method => "get", class:'btn btn-sub-group'%>
+  <%= button_to "Categoria de Cuentas", account_categories_path, :method => "get", class:'btn btn-category'%>
+  <%= button_to "Cuentas",accounts_path, :method => "get", class:'btn btn-account'%>
+
+</div>

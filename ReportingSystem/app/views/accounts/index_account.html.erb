@@ -1,0 +1,42 @@
+<!-- Google font -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+<%= stylesheet_link_tag "index_account.css" %>
+<div class="container-main">
+  <div class="container-title-folders">
+    <p>Cuentas</p>
+    <p id="subtitle1">Listado de cuentas de la empresa</p>
+    <%= link_to "", menu_account_path , class: 'btn btn-primary bi bi-arrow-counterclockwise rounded-1 float-right icon-back-group' %>
+    <%= link_to "", account_new_path, class: 'btn btn-primary bi bi-plus-lg rounded-1 float-right icon-new' %>
+  </div>
+  <br>
+  <div class="container-folders">
+      <table class="table table-striped table-hover">
+        <thead>
+        <tr>
+          <th style="text-align: center">Grupo de Cuenta</th>
+          <th style="text-align: center">Sub Grupo de Cuenta</th>
+          <th style="text-align: center">Categoria de Cuenta</th>
+          <th style="text-align: center">Codigo de Cuenta</th>
+          <th style="text-align: center">Nombre de cuenta</th>
+          <th style="text-align: center">Descripcion de <br> cuenta </th>
+          <th style="text-align: center">Editar o Ver</th>
+        </tr>
+        </thead>
+        <% @account.each do |account| %>
+          <tbody>
+          <tr>
+            <td style="text-align: center"><%= account.group.account_name %></td>
+            <td style="text-align: center"><%= account.sub_group.name_sub_group %></td>
+            <td style="text-align: center"><%= account.account_category.account_category_name %></td>
+            <td style="text-align: center"><%= account.account_code %></td>
+            <th style="text-align: center"><%= account.account_name %></th>
+            <td style="text-align: center"><%= account.account_description %></td>
+            <td style="text-align: center">&nbsp&nbsp<%= link_to "", account_edit_path(account), class:'btn btn-outline rounded-circle bi bi-pencil pencil-edit', style: 'font-size: 25px'%>&nbsp&nbsp</td>
+          </tr>
+          </tbody>
+        <% end %>
+      </table>
+  </div>
+</div>
+
+

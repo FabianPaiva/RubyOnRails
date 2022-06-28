@@ -1,0 +1,51 @@
+<!-- Google font -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+<%= stylesheet_link_tag "edit_account_category.css" %>
+<div class="container-main">
+  <div class="container-title-folders">
+    <p>Categoria de Cuentas</p>
+    <p id="subtitle1">Editar Categoria de Cuenta</p>
+    <%= link_to "",account_categories_path, class: 'btn btn-primary bi bi-arrow-counterclockwise rounded-1 float-right icon-back-group' %>
+  </div>
+  <br>
+  <div class="container-folders">
+    <%= form_for @account_category do |f| %>
+      <div class="container">
+        <div class="row mt-3">
+          <div class="col">
+            <form action="">
+              <div class="form-group row">
+                <div class="col-12">
+                  <div class="row justify-content-center">
+                    <div class="col-12 col-sm-9 col-md-4">
+                      <br>
+                      <label><b>Seleccione Grupo de cuenta</b></label>
+                      <br>
+                      <%= f.collection_select(:group_id, Group.all.order(:account_name), :id, :account_name, {:prompt => false}, {:class => 'form-control'}) %>
+                      <br>
+                      <label><b>Seleccione Sub Grupo de Cuenta</b></label>
+                      <br>
+                      <%= f.collection_select(:sub_group_id, SubGroup.all.order(:name_sub_group), :id, :name_sub_group, {:prompt => false}, {:class => 'form-control'}) %>
+                      <br>
+                      <label><b>Codigo Categoria de Cuenta</b></label>
+                      <br>
+                      <%= f.text_field :account_category_code, :type => 'text', :class => 'form-control', :placeholder => 'Ingrese codigo categoria de cuenta', autocomplete: 'off', required: true %>
+                      <br>
+                      <label><b>Nombre Categoria de Cuenta</b></label>
+                      <br>
+                      <%= f.text_field :account_category_name, :type => 'text', :class => 'form-control', :placeholder => 'Ingrese nombre categoria de cuenta', autocomplete: 'off', required: true %>
+                      <br>
+                      <div class="d-grid gap-2">
+                        <%= f.submit :Actualizar, :class => 'btn btn-primary btn-block' %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

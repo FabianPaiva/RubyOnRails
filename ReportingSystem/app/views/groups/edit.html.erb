@@ -1,0 +1,46 @@
+<!-- Google font -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+<%= stylesheet_link_tag "edit.css" %>
+<div class="container-main">
+  <div class="container-title-folders">
+    <p>Grupo de Cuentas</p>
+    <p id="subtitle1">Editar Grupo de cuentas</p>
+    <%= link_to "", groups_path, class: 'btn btn-primary bi bi-arrow-counterclockwise rounded-1 float-right icon-back-group' %>
+  </div>
+  <br>
+  <div class="container-folders">
+    <%= form_for @group do |f| %>
+      <div class="container">
+        <div class="row mt-3">
+          <div class="col">
+            <form action="">
+              <div class="form-group row">
+                <div class="col-12">
+                  <div class="row justify-content-center">
+                    <div class="col-12 col-sm-9 col-md-4">
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                      <label><b>Codigo de Grupo</b></label>
+                      <br>
+                      <%= f.text_field :group_code, :type => 'number', :class => 'form-control', :placeholder => 'Ingrese el codigo de grupo', autofocus: true, autocomplete: 'off', required: true %>
+                      <br>
+                      <label><b>Nombre del Grupo de Cuenta</b></label>
+                      <br>
+                      <%= f.text_field :account_name, :type => 'text', :class => 'form-control', :placeholder => 'Ingrese el nombre del grupo de la cuenta', autocomplete: 'off', required: true %>
+                      <br>
+                      <div class="d-grid gap-2">
+                        <%= f.submit :Actualizar, :class => 'btn btn-primary btn-block' %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

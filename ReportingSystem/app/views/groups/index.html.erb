@@ -1,0 +1,32 @@
+<!-- Google font -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+<%= stylesheet_link_tag "index", "data-turbo-track": "reload", content: "no-preview"  %>
+<div class="container-main">
+  <div class="container-title-folders">
+    <p>Grupo de Cuentas</p>
+    <p id="subtitle1">Listado de Grupo de cuentas</p>
+    <%= link_to "", menu_account_path, class: 'btn btn-primary bi bi-arrow-counterclockwise rounded-1 float-right icon-back-group' %>
+    <%= link_to "", group_new_path, class: 'btn btn-primary bi bi-plus-lg rounded-1 float-right icon-new' %>
+  </div>
+  <div class="container-folders">
+    <table class="table table-striped table-hover">
+      <thead>
+      <tr>
+        <th style="text-align: center">Codigo Grupo de Cuenta</th>
+        <th style="text-align: center">Nombre Grupo de Cuenta</th>
+        <th style="text-align: center">Editar o Ver</th>
+      </tr>
+      </thead>
+
+      <% @groups.each do |group|   %>
+        <tbody>
+          <tr>
+            <th style="text-align: center"><%= group.group_code %></th>
+            <td style="text-align: center"><%= group.account_name %></td>
+            <td style="text-align: center">&nbsp&nbsp<%= link_to "", group_edit_path(group), class:'btn btn-outline rounded-circle bi bi-pencil pencil-edit', style: 'font-size: 25px'%>&nbsp&nbsp</td>
+           </tr>
+         </tbody>
+      <% end %>
+    </table>
+  </div>
+</div>

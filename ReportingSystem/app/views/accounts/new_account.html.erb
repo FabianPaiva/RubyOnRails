@@ -1,0 +1,68 @@
+<!-- Google font -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+<%= stylesheet_link_tag "new_account.css" %>
+<div class="container-main">
+  <div class="container-title-folders">
+    <p>Cuentas</p>
+    <p id="subtitle1">Crear Nueva Cuenta</p>
+    <%= link_to "", accounts_path , class: 'btn btn-primary bi bi-arrow-counterclockwise rounded-1 float-right icon-back-group' %>
+  </div>
+  <br>
+  <div class="container-folders">
+    <%= form_for @account do |f| %>
+      <div class="container">
+        <div class="row mt-3">
+          <div class="col">
+            <form action="">
+              <div class="form-group row">
+
+                <div class="col-12 col-md-6 mb-3">
+                  <br>
+                  <label><b>Grupo de cuenta</b></label>
+                  <%= f.collection_select(:group_id, Group.all.order(:account_name), :id, :account_name, {:prompt => false}, {:class => 'form-control', :autofocus => true }) %>
+                </div>
+                <div class="col-12 col-md-6 mb-3">
+                  <br>
+                  <label><b>Nombre de Cuenta</b></label>
+                    <%= f.text_field :account_name, :type => 'text', :class => 'form-control', :placeholder => 'Ingrese el nombre de la cuenta', autocomplete: 'off', required: true %>
+                </div>
+                <div class="col-12 col-md-6 mb-3">
+                  <br>
+                  <label><b>Sub Grupo de Cuenta</b></label>
+                  <%= f.collection_select(:sub_group_id, SubGroup.all.order(:name_sub_group), :id, :name_sub_group, {:prompt => false}, {:class => 'form-control'}) %>
+                </div>
+                <div class="col-12 col-md-6 mb-3">
+                  <br>
+                  <label><b>Codigo de Cuenta </b></label>
+                  <%= f.text_field :account_code, :type => 'text', :class => 'form-control', :placeholder => 'Ingrese el codigo de la cuenta', autocomplete: 'off', required: true %>
+                </div>
+                <div class="col-12 col-md-6 mb-3">
+                  <br>
+                  <label><b>Categoria de Cuenta</b></label>
+                  <%= f.collection_select(:account_category_id, AccountCategory.all.order(:account_category_name), :id, :account_category_name, {:prompt => false}, {:class => 'form-control'}) %>
+                </div>
+                <div class="col-12 col-md-6 mb-3">
+                  <br>
+                  <label><b>Descripcion de la cuenta</b></label>
+                  <%= f.text_field :account_description, :type => 'text', :class => 'form-control', :placeholder => 'Ingrese la descripcion de la cuenta', autocomplete: 'off', required: true %>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-12 text-center">
+                  <div class="row justify-content-center">
+                    <div class="col-12 col-sm-9 col-md-4">
+                      <br>
+                      <%= f.submit :Crear, :class => 'btn btn-primary btn-create-new-account' %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

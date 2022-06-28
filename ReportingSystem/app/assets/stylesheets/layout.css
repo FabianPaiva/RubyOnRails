@@ -1,0 +1,68 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+a{
+    text-decoration: none;
+}
+
+.menu-vertical a{
+    text-decoration: none;
+}
+
+/**------ Barra Lateral---**/
+.barra-lateral{
+    background: #262a34;
+    color: #fff;
+    min-width: 200px;
+    min-height: 10vh;
+}
+
+.barra-lateral a{
+    color: #fff;
+}
+
+/**----- Dando estilos en el logo -----**/
+.barra-lateral .logo{
+    background: #0275db;
+}
+
+.barra-lateral .logo h2{
+    font-size: 30px;
+    font-family: Roboto, sans-Serif;
+    text-align: center ;
+    font-weight: 300;
+}
+
+/**----- Dando estilo a los enlaces del Menu lateral ----**/
+.barra-lateral .menu-vertical a{
+    display: block;
+    padding: 20px;
+    font-family: Roboto, sans-serif;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(255, 255, 255, .1);
+}
+
+.barra-lateral .menu-vertical a:hover{
+    background: #35ae6b;
+    color: #fff;
+}
+.barra-lateral .menu-vertical a svg{
+    margin-right: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

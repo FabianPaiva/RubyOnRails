@@ -1,0 +1,50 @@
+<!-- Google font -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+<%= stylesheet_link_tag "new_sub_group.css" %>
+<div class="container-main">
+  <div class="container-title-folders">
+    <p>Sub Grupo de Cuentas</p>
+    <p id="subtitle1">Crear Nuevo Sub Grupo de cuentas</p>
+    <%= link_to "",sub_groups_path, class: 'btn btn-primary bi bi-arrow-counterclockwise rounded-1 float-right icon-back-group' %>
+  </div>
+  <br>
+  <div class="container-folders">
+    <%= form_for @sub_group do |f| %>
+      <div class="container">
+        <div class="row mt-3">
+          <div class="col">
+            <form action="">
+              <div class="form-group row">
+                <div class="col-12">
+                  <div class="row justify-content-center">
+                    <div class="col-12 col-sm-9 col-md-4">
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                      <label><b>Nombre de Grupo</b></label>
+                      <br>
+                      <%= f.collection_select(:group_id, Group.all.order(:account_name), :id, :account_name, {:prompt => false}, {:class => 'form-control'}) %>
+                      <br>
+                      <label><b>Codigo del Sub Grupo de Cuenta</b></label>
+                      <br>
+                      <%= f.text_field :code_sub_group, :type => 'text', :class => 'form-control', :placeholder => 'Ingrese codigo sub grupo de cuenta', autocomplete: 'off', required: true %>
+                      <br>
+                      <label><b>Nombre del Sub Grupo de Cuenta</b></label>
+                      <br>
+                      <%= f.text_field :name_sub_group, :type => 'text', :class => 'form-control', :placeholder => 'Ingrese nombre sub grupo cuenta', autocomplete: 'off', required: true %>
+                      <br>
+                      <div class="d-grid gap-2">
+                        <%= f.submit :Crear, :class => 'btn btn-primary btn-block' %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
